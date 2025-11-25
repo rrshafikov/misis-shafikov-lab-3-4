@@ -1,0 +1,18 @@
+class Singleton:
+    _instance = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+    def some_method(self):
+        return "Выполняется метод some_method у Singleton"
+
+
+# Пример использования
+if __name__ == "__main__":
+    s1 = Singleton()
+    s2 = Singleton()
+    print(f"s1 is s2: {s1 is s2}")
+    print(s1.some_method())
